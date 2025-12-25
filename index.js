@@ -23,11 +23,9 @@ app.post("/ai", async (req, res) => {
 
     const data = await response.json();
 
-    if (data && data.data && data.data[0]) {
-      res.json({ reply: data.data[0] });
-    } else {
-      res.json({ reply: "Eroare la AI (format)." });
-    }
+    // DEBUG: trimitem tot răspunsul înapoi ca să vedem structura reală
+    res.json({ debug: data });
+
   } catch (err) {
     res.json({ reply: "Eroare la AI (server)." });
   }
